@@ -1,0 +1,15 @@
+/Users/akshingoswami/Documents/GitHub/battleship/bin/Debug/net6.0/battleship
+/Users/akshingoswami/Documents/GitHub/battleship/bin/Debug/net6.0/battleship.deps.json
+/Users/akshingoswami/Documents/GitHub/battleship/bin/Debug/net6.0/battleship.runtimeconfig.json
+/Users/akshingoswami/Documents/GitHub/battleship/bin/Debug/net6.0/battleship.dll
+/Users/akshingoswami/Documents/GitHub/battleship/bin/Debug/net6.0/battleship.pdb
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.csproj.AssemblyReference.cache
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.GeneratedMSBuildEditorConfig.editorconfig
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.AssemblyInfoInputs.cache
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.AssemblyInfo.cs
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.csproj.CoreCompileInputs.cache
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.dll
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/refint/battleship.dll
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.pdb
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/battleship.genruntimeconfig.cache
+/Users/akshingoswami/Documents/GitHub/battleship/obj/Debug/net6.0/ref/battleship.dll
