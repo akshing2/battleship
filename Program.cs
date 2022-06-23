@@ -1,7 +1,10 @@
-﻿internal class Program
+﻿using ShipTester = TestShips.ShipTester;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        ShipTester st = new ShipTester();
+        st.testShipConstructors();
     }
 }
