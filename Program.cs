@@ -5,6 +5,7 @@ internal class Program
     private static void Main(string[] args)
     {
         PBT pbt = new PBT();
-        pbt.PrintPlayerBoardTest();
+        //pbt.PrintPlayerBoardTest();
+        pbt.PrintHitsAndMissesTest();
     }
 }

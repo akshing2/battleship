@@ -9,15 +9,18 @@ namespace PlayerBoard
     {
         // @fields
         private bool hasWon;            // determine if player has won so as to exit the game.
-        private List<string> hits;      // list of coordinates where there have been hits.
-        private List<string> misses;    // list of coordinates where there have been misses.
-        private List<ship> ships;       // List of all ships.
+        private List<string> hits = new List<string>();      // list of coordinates where there have been hits.
+        private List<string> misses = new List<string>();    // list of coordinates where there have been misses.
+        private List<ship> ships = new List<ship>();       // List of all ships.
         private int numRows = 10;            // number of rows in game board (always 10)
         // Header labels for each row
         private string[] rowHeaders = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
         private int numCols = 10;            // number of columns in game board (always 10)
         // header labels for eeach column
         private string[] colHeaders = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+        private string[] markers = { " ", "O", "X" }; // { empty, miss, hit }
+        // for debugging
+        private bool debug = false;
 
 
         // @getter_methods
@@ -30,6 +33,10 @@ namespace PlayerBoard
         public void setHasWon(bool won)
         {
             this.hasWon = won;
+        }
+        public void setDebug(bool db)
+        {
+            this.debug = db;
         }
         // add hits to the array of hits on player board
         public void addHit(string coords)
@@ -73,8 +80,11 @@ namespace PlayerBoard
             this.ships.Remove(ship);
         }
 
-        // @methods
+        // Methods to determine if coords are empty, miss or hit.
+        private bool isHit(string coords) { return this.hits.Contains(coords); }
+        private bool isMiss(string coords) { return this.misses.Contains(coords); }
 
+        // Methods to Print the Board
         // @brief: funciton to print column headers
         private void PrintColumnHeaders()
         {
@@ -107,13 +117,18 @@ namespace PlayerBoard
         // @brief: function to print if current coords is a hit, miss or unshot
         private void PrintCell(string coords = "")
         {
-            // characters for different states
-            string hit = "X";
-            string miss = "O";
-            string empty = "#";
+            // cell to be printed (will be a hit, miss or empty)
+            string hit = " X";
+            string miss = " O";
+            string empty = "  ";
+            string cell = empty;
 
-            // TODO: implement conditions for if it is a hit or miss
-            Console.Write("  " + empty + " |");
+            // determine which cell type to use (empty, miss or hit)
+            cell = this.debug ? coords : this.isHit(coords) ? hit : this.isMiss(coords) ? miss : empty;
+
+            // write out the cell
+            Console.Write(" " + cell + " |");
+
         }
 
         // @brief: This method prints the game board in the command line
@@ -137,7 +152,8 @@ namespace PlayerBoard
                     }
                     else
                     {
-                        PrintCell();
+                        currCoord = this.rowHeaders[row] + this.colHeaders[col];
+                        PrintCell(currCoord);
                     }
                 }
                 PrintRowSeparator();
