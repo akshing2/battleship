@@ -4,20 +4,19 @@ namespace Ship
 {
     public class Ship
     {
-        // fields of class
+        // @fields
         // These are private fields to ensure mutability only through setter methods
         private string shipClass; // class of battleship [carrier, battleship, cruiser, submarine, destroyer]
         private int spaces; // how many spaces the battleship takes up [carrier = 5, battleship = 4, cruiser = 3, submarine = 3, destroyer = 2]
         private string alignment; // if the ship is aligned ['vertical', 'horizontal']
         private string coords; // coordinates for which the ship is centered. Eg "D2".
 
-        // getter methods
+        // @getter_methods
         public string getShipClass() { return this.shipClass; }
         public int getSpaces() { return this.spaces; }
         public string getAlignment() { return this.alignment; }
         public string getCoords() { return this.coords; }
-
-        // setter methods
+        //@setter_methods
         public void setShipClass(string shipClass)
         {
             this.shipClass = shipClass;
@@ -41,7 +40,7 @@ namespace Ship
             this.coords = coords;
         }
 
-        // constructors
+        // @constructors
         public Ship() { }
         public Ship(string shipClass, int spaces, string alignment, string coords)
         {
