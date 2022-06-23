@@ -2,7 +2,7 @@
 // This class will track the state of each player.
 using ship = Ship.Ship;
 
-namespace PayerBoard
+namespace PlayerBoard
 {
 
     public class PlayerBoard
@@ -12,6 +12,13 @@ namespace PayerBoard
         private List<string> hits;      // list of coordinates where there have been hits.
         private List<string> misses;    // list of coordinates where there have been misses.
         private List<ship> ships;       // List of all ships.
+        private int numRows = 10;            // number of rows in game board (always 10)
+        // Header labels for each row
+        private string[] rowHeaders = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
+        private int numCols = 10;            // number of columns in game board (always 10)
+        // header labels for eeach column
+        private string[] colHeaders = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+
 
         // @getter_methods
         public bool getHasWon() { return hasWon; }
@@ -67,18 +74,77 @@ namespace PayerBoard
         }
 
         // @methods
-        public void printBoardWithoutShips()
+
+        // @brief: funciton to print column headers
+        private void PrintColumnHeaders()
         {
-            // this method prints the board without ships
-            // this method is meant to show the oposing player the state
-            // of this board.
+            Console.Write(" | "); // blank space for first header formatting
+            for (int i = 0; i < numCols; i++)
+            {
+                // format header so that number of digits are uniform.
+                // This will make the game board easier to read.
+                string toWrite = this.colHeaders[i].Length == 1 ? "0" + this.colHeaders[i] : this.colHeaders[i];
+                Console.Write(toWrite + " | ");
+            }
+            PrintRowSeparator();
+
         }
 
-        public void printBoardWithShips()
+        // @brief: function to print a row header
+        private void PrintRowHeader(int index)
         {
-            // This method is meant to show the player's own game board.
-            // They will need to know where their own ships are.
+            Console.Write(this.rowHeaders[index] + "|");
         }
+
+        // @brief: function to print row sepatators
+        private void PrintRowSeparator()
+        {
+            Console.WriteLine();
+            string rowSeparator = new string('_', 52);
+            Console.WriteLine(rowSeparator);
+        }
+
+        // @brief: function to print if current coords is a hit, miss or unshot
+        private void PrintCell(string coords = "")
+        {
+            // characters for different states
+            string hit = "X";
+            string miss = "O";
+            string empty = "#";
+
+            // TODO: implement conditions for if it is a hit or miss
+            Console.Write("  " + empty + " |");
+        }
+
+        // @brief: This method prints the game board in the command line
+        // @params:
+        //  withShips   ->  (bool) print the board with the ships' coordinates.
+        //                  This is to relay information to the player on where.
+        //                  their ships are. 
+        public void printBoard(bool withShips = false)
+        {
+            string currCoord; // current coordinate 
+            // nested loop to go through every grid
+            PrintColumnHeaders();
+            for (int row = 0; row < this.numRows; row++)
+            {
+                for (int col = -1; col < this.numCols; col++)
+                {
+                    if (col == -1)
+                    {
+                        // print header row
+                        PrintRowHeader(row);
+                    }
+                    else
+                    {
+                        PrintCell();
+                    }
+                }
+                PrintRowSeparator();
+            }
+
+        }
+
 
     }
 }
