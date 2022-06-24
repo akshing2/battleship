@@ -1,11 +1,13 @@
-﻿using PBT = TestPlayerBoard.PlayerBoardTester;
-
+﻿using ST = TestShips.ShipTester;
+using PBT = TestPlayerBoard.PlayerBoardTester;
 internal class Program
 {
     private static void Main(string[] args)
     {
+        ST st = new ST();
         PBT pbt = new PBT();
-        //pbt.PrintPlayerBoardTest();
+
+        st.testShipConstructors();
         pbt.PrintHitsAndMissesTest();
     }
 }

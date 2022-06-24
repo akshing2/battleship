@@ -7,46 +7,51 @@ namespace Ship
         // @fields
         // These are private fields to ensure mutability only through setter methods
         private string shipClass; // class of battleship [carrier, battleship, cruiser, submarine, destroyer]
-        private int spaces; // how many spaces the battleship takes up [carrier = 5, battleship = 4, cruiser = 3, submarine = 3, destroyer = 2]
-        private string alignment; // if the ship is aligned ['vertical', 'horizontal']
-        private string coords; // coordinates for which the ship is centered. Eg "D2".
+        private int hitPoints; // how many hits the battleship takes up [carrier = 5, battleship = 4, cruiser = 3, submarine = 3, destroyer = 2]
+        private List<string> coords = new List<string>(); // coordinates for which the ship is centered. Eg "D2".
 
         // @getter_methods
         public string getShipClass() { return this.shipClass; }
-        public int getSpaces() { return this.spaces; }
-        public string getAlignment() { return this.alignment; }
-        public string getCoords() { return this.coords; }
+        public int getHitPoints() { return this.hitPoints; }
+        public List<string> getCoords() { return this.coords; }
         //@setter_methods
         public void setShipClass(string shipClass)
         {
             this.shipClass = shipClass;
         }
-        public void setSpaces(int spaces)
+        public void setHitPoints(int hitPoints)
         {
             // TODO: ideally spaces is set based on what form the ship object is
             // for now this will do.
-            this.spaces = spaces;
+            this.hitPoints = hitPoints;
         }
-
-        public void setAlignment(string alignment)
-        {
-            // TODO: ideally, check alignment string is in range ['horizontal', 'vertical']
-            // for now, this will do.
-            this.alignment = alignment;
-        }
-        public void setCoords(string coords)
+        // add a coords string to the coords list for a ship
+        public void addSingleCoord(string coords)
         {
             // TODO: need to validate coord strings are in ideal format. Eg, "A1" -> "J10"
+            this.coords.Add(coords);
+        }
+        public void addCoordsList(List<string> coords)
+        {
+            // note that this will replace all the coords previously stored
             this.coords = coords;
+        }
+
+        // @methods
+        public void printCoords()
+        {
+            // helper function to print coords if needed
+            Console.Write(this.shipClass + " coords: ");
+            this.coords.ForEach(item => { Console.Write(item + " "); });
+            Console.WriteLine();
         }
 
         // @constructors
         public Ship() { }
-        public Ship(string shipClass, int spaces, string alignment, string coords)
+        public Ship(string shipClass, int hitPoints, List<string> coords)
         {
             this.shipClass = shipClass;
-            this.spaces = spaces;
-            this.alignment = alignment;
+            this.hitPoints = hitPoints;
             this.coords = coords;
         }
 

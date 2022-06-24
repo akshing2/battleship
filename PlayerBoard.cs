@@ -93,7 +93,7 @@ namespace PlayerBoard
             {
                 // format header so that number of digits are uniform.
                 // This will make the game board easier to read.
-                string toWrite = this.colHeaders[i].Length == 1 ? "0" + this.colHeaders[i] : this.colHeaders[i];
+                string toWrite = this.colHeaders[i].Length == 1 ? " " + this.colHeaders[i] : this.colHeaders[i];
                 Console.Write(toWrite + " | ");
             }
             PrintRowSeparator();
@@ -121,10 +121,8 @@ namespace PlayerBoard
             string hit = " X";
             string miss = " O";
             string empty = "  ";
-            string cell = empty;
-
             // determine which cell type to use (empty, miss or hit)
-            cell = this.debug ? coords : this.isHit(coords) ? hit : this.isMiss(coords) ? miss : empty;
+            string cell = this.debug ? coords : this.isHit(coords) ? hit : this.isMiss(coords) ? miss : empty;
 
             // write out the cell
             Console.Write(" " + cell + " |");

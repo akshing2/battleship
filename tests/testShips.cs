@@ -7,28 +7,27 @@ namespace TestShips
         private void PrintShip(ship ship)
         {
             Console.WriteLine("{0}: {1}", "shipClass", ship.getShipClass());
-            Console.WriteLine("{0}: {1}", "spaces", ship.getSpaces());
-            Console.WriteLine("{0}: {1}", "alignment", ship.getAlignment());
-            Console.WriteLine("{0}: {1}", "coords", ship.getCoords());
+            Console.WriteLine("{0}: {1}", "hitPoints", ship.getHitPoints());
+            ship.printCoords();
             // new line to space thigs out
             Console.WriteLine("\n");
         }
         public void testShipConstructors()
         {
             // new carrier
-            ship carrier = new ship("carrier", 5, "horizontal", "B4");
+            ship carrier = new ship("carrier", 5, new List<string>() { "A1", "A2", "A3", "A4", "A5" });
             PrintShip(carrier);
             // new battleship
-            ship battleship = new ship("battleship", 4, "vertical", "C5");
+            ship battleship = new ship("battleship", 4, new List<string>() { "A1", "A2", "A3", "A4" });
             PrintShip(battleship);
             // new cruiser
-            ship cruiser = new ship("cruiser", 3, "vertical", "D5");
+            ship cruiser = new ship("cruiser", 3, new List<string>() { "A1", "A2", "A3" });
             PrintShip(cruiser);
             // new submarine
-            ship submarine = new ship("submarine", 3, "horizontal", "D5");
+            ship submarine = new ship("submarine", 3, new List<string>() { "A1", "A2", "A3" });
             PrintShip(submarine);
             // new destroyer
-            ship destroyer = new ship("destroyer", 2, "vertical", "E8");
+            ship destroyer = new ship("destroyer", 2, new List<string>() { "A1", "A2" });
             PrintShip(destroyer);
         }
 
